@@ -21,5 +21,43 @@
   <%= @waypoint.vehicle.vehicle_name %>
 </p>
 
+<p id="map" style="height: 480px;"></p>
+
+
 <%= link_to 'Edit', edit_waypoint_path(@waypoint) %> |
 <%= link_to 'Back', waypoints_path %>
+
+<script type="text/javascript">
+  //Setting up the map
+  var map = new ol.Map({
+    target: 'map',
+    layers: [ new ol.layer.Tile({ source: new ol.source.OSM() }) ],
+    view: new ol.View({
+      center: ol.proj.fromLonLat([-70.656028, -33.444592]),
+      zoom: 17 }) 
+  });
+  //Setting location of marker
+  var marker = new ol.Feature({
+    geometry: new ol.geom.Point(
+      ol.proj.fromLonLat([-70.656028, -33.444592])
+    ),
+  });
+  //Styling marker
+  var icon = new ol.style.Icon({
+      /*src: 'http://download.seaicons.com/icons/icons-land/vista-map-markers/256/Map-Marker-Push-Pin-1-Pink-icon.png',
+      src: 'https://images.vexels.com/media/users/3/135138/isolated/preview/37bb16a497b84daee1b6dbfc87c9e2ed-signo-de-localizaci--n-azul-by-vexels.png',
+      src: 'https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png',
+      src: 'https://www.mfyou.in/web_assets/images/currnet_location.png',
+      src: 'https://practicaltherapysolutions.ie/wp-content/uploads/2015/04/location.png',
+      src: 'https://www.seekpng.com/png/full/347-3471181_lugar-de-juego-ubicacion-png.png',*/
+      src: 'https://png.pngtree.com/svg/20170217/9300c0869c.svg',
+      anchor: [0.5, 0.5],
+      scale: 0.10,
+  });
+  marker.setStyle(new ol.style.Style({ image: icon }));
+  var vectorSource = new ol.source.Vector({ features: [marker] });
+  var markerVectorLayer = new ol.layer.Vector({ source: vectorSource, });
+  map.addLayer(markerVectorLayer);
+
+      
+    </script>
