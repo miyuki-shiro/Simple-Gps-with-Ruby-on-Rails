@@ -43,14 +43,4 @@
     </tbody>
   </table>
   
-  <br>
-
-  <div class="row justify-content-between">
-    <%= form_for @waypoints, url: search_vehicle_path do |form| %>
-      <%= collection_select(:waypoint, params[:vehicle_id], @vehicles, :id, :vehicle_name, {:prompt => false}, class: 'form-control col-md-3')  %>
-      <!--<%= link_to 'Search', search_vehicle_path(@waypoints), class: 'btn btn-dark', style: 'color:white' %>-->
-      <%= form.submit 'Search', class: 'btn btn-dark float-right', style: 'color:white'%>
-    <% end %>
-</div>
-
 <div>
