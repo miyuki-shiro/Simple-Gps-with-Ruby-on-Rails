@@ -1,6 +1,6 @@
 class WaypointsController < ApplicationController
   before_action :set_waypoint, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   # GET /waypoints
   # GET /waypoints.json
@@ -41,7 +41,18 @@ class WaypointsController < ApplicationController
   # POST /waypoints
   # POST /waypoints.json
   def create
-    @waypoint = Waypoint.new(waypoint_params)
+    # @waypoint = Waypoint.new(waypoint_params)
+
+    if Vehicle.exists?(vehicle_name: params[:vehicle_identifier])
+      puts "Vehicle exist"
+      @vehicle = Vehicle.find_by(vehicle_name: params[:vehicle_identifier])
+    else
+      puts "Vehicle doesn't exist"
+      @vehicle = Vehicle.new(:vehicle_name => params[:vehicle_identifier])
+      @vehicle.save
+    end
+
+    @waypoint = Waypoint.new({:latitude => params[:latitude], :longitude => params[:longitude], :sent_at => params[:sent_at], :vehicle_id => @vehicle.id})
 
     respond_to do |format|
       if @waypoint.save

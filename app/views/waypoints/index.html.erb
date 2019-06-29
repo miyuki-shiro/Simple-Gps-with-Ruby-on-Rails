@@ -34,8 +34,8 @@
           <td class="align-middle"><%= waypoint.vehicle.vehicle_name %></td>
           <td class="align-middle"><%= link_to waypoint, class: 'btn btn-light btn-sm rounded-circle' do %> 
             <i class="material-icons">remove_red_eye</i> <% end %></td>
-          <td class="align-middle"><%= link_to edit_waypoint_path(waypoint), class: 'btn btn-light btn-sm rounded-circle' do %> 
-            <i class="material-icons">edit</i> <% end %></td>
+          <!--<td class="align-middle"><%= link_to edit_waypoint_path(waypoint), class: 'btn btn-light btn-sm rounded-circle' do %> 
+            <i class="material-icons">edit</i> <% end %></td>-->
           <td class="align-middle"><%= link_to waypoint, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm rounded-circle' do %>
             <i class="material-icons">delete</i> <% end %></td>
         </tr>
@@ -46,12 +46,11 @@
   <br>
 
   <div class="row justify-content-between">
-      <%= form_for @waypoint, url: search_vehicle_path do |form| %>
-        <%= collection_select(:waypoint, params[:vehicle_id], @vehicles, :id, :vehicle_name, {:prompt => false}, class: 'form-control col-md-3')  %>
-        <!--<%= link_to 'Search', search_vehicle_path(@waypoints), class: 'btn btn-dark', style: 'color:white' %>-->
-        <%= form.submit 'Search', class: 'btn btn-dark float-right', style: 'color:white'%>
-      <% end %>
-    <%= link_to 'New Waypoint', new_waypoint_path, class: 'btn btn-dark', style: 'color:white' %>
-  </div>
+    <%= form_for @waypoints, url: search_vehicle_path do |form| %>
+      <%= collection_select(:waypoint, params[:vehicle_id], @vehicles, :id, :vehicle_name, {:prompt => false}, class: 'form-control col-md-3')  %>
+      <!--<%= link_to 'Search', search_vehicle_path(@waypoints), class: 'btn btn-dark', style: 'color:white' %>-->
+      <%= form.submit 'Search', class: 'btn btn-dark float-right', style: 'color:white'%>
+    <% end %>
+</div>
 
 <div>
