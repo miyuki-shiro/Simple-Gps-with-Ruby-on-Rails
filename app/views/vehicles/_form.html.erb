@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :vehicle_name %>
-    <%= form.text_field :vehicle_name %>
+  <br>
+
+  <div class="form-group row">
+    <%= form.label :vehicle_name, class: 'col-md-2 col-form-label' %>
+    <%= form.text_field :vehicle_name, class: 'form-control col-md-4' %>
+    <%= form.submit class: 'btn btn-dark mx-auto' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

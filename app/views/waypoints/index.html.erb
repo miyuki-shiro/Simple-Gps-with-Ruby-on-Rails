@@ -1,11 +1,18 @@
+<script>
+  var json = JSON.parse(response.body);
+  console.log(json);
+</script>
+
 <p id="notice"><%= notice %></p>
 
 <div class="container-fluid">
-  <h1>Waypoints</h1>
+  <h1 class="d-flex justify-content-center">Waypoints</h1>
+
+  <br>
   
   <table class="table">
     <thead class="thead-dark">
-      <tr>
+      <tr class="align-middle">
         <th>Latitude</th>
         <th>Longitude</th>
         <th>Sent at</th>
@@ -38,5 +45,13 @@
   
   <br>
 
-  <%= link_to 'New Waypoint', new_waypoint_path %>
+  <div class="row justify-content-between">
+      <%= form_for @waypoint, url: search_vehicle_path do |form| %>
+        <%= collection_select(:waypoint, params[:vehicle_id], @vehicles, :id, :vehicle_name, {:prompt => false}, class: 'form-control col-md-3')  %>
+        <!--<%= link_to 'Search', search_vehicle_path(@waypoints), class: 'btn btn-dark', style: 'color:white' %>-->
+        <%= form.submit 'Search', class: 'btn btn-dark float-right', style: 'color:white'%>
+      <% end %>
+    <%= link_to 'New Waypoint', new_waypoint_path, class: 'btn btn-dark', style: 'color:white' %>
+  </div>
+
 <div>

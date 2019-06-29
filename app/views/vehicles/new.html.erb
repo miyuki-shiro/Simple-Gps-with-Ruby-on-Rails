@@ -1,5 +1,16 @@
-<h1>New Vehicle</h1>
+<br>
 
-<%= render 'form', vehicle: @vehicle %>
+<div class="container-fluid">
 
-<%= link_to 'Back', vehicles_path %>
+    <h1 class="d-flex justify-content-center">New Vehicle</h1>
+
+    <%= render 'form', vehicle: @vehicle %>
+
+    <!--<%= link_to 'Back', vehicles_path %>-->
+
+    <br>
+
+    <%= link_to vehicles_path, class: 'btn btn-light btn-large rounded-circle' do %>
+        <i class="material-icons">arrow_back_ios</i> <% end %>
+
+</div>

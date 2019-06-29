@@ -1,6 +1,17 @@
-<h1>Editing Waypoint</h1>
+<br>
 
-<%= render 'form', waypoint: @waypoint %>
+<div class="container-fluid">
 
-<%= link_to 'Show', @waypoint %> |
-<%= link_to 'Back', waypoints_path %>
+    <h1 class="d-flex justify-content-center">Editing Waypoint</h1>
+
+    <%= render 'form', waypoint: @waypoint %>
+
+    <!--<%= link_to 'Show', @waypoint %> |
+    <%= link_to 'Back', waypoints_path %>-->
+
+    <!--<%= link_to @waypoint, class: 'btn btn-light btn-large rounded-circle' do %>
+        <i class="material-icons">remove_red_eye</i> <% end %>-->
+    <%= link_to waypoints_path, class: 'btn btn-light btn-large rounded-circle' do %>
+        <i class="material-icons">arrow_back_ios</i> <% end %>
+
+</div>

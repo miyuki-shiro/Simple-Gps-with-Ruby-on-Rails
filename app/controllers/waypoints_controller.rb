@@ -1,15 +1,24 @@
 class WaypointsController < ApplicationController
   before_action :set_waypoint, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token
 
   # GET /waypoints
   # GET /waypoints.json
   def index
     @waypoints = Waypoint.all
+    @vehicles = Vehicle.all
   end
 
   # GET /waypoints/1
   # GET /waypoints/1.json
   def show
+  end
+
+  def search_vehicle
+    #@waypoint = Waypoint.all
+    #@waypoints = Waypoint.where("vehicle_id = ?", params[:vehicle_id])
+    @waypoints = Waypoint.find(params[:vehicle_id])
+    @vehicles = Vehicle.all
   end
 
   # GET /waypoints/new

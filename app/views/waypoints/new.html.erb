@@ -1,5 +1,14 @@
-<h1>New Waypoint</h1>
+<br>
 
-<%= render 'form', waypoint: @waypoint %>
+<div class="container-fluid">
 
-<%= link_to 'Back', waypoints_path %>
+    <h1 class="d-flex justify-content-center">New Waypoint</h1>
+
+    <%= render 'form', waypoint: @waypoint %>
+
+    <!--<%= link_to 'Back', waypoints_path %>-->
+
+    <%= link_to waypoints_path, class: 'btn btn-light btn-large rounded-circle' do %>
+        <i class="material-icons">arrow_back_ios</i> <% end %>
+
+</div>

@@ -11,28 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude %>
-  </div>
+<div class="container-fluid">
+  <br>
 
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude %>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :latitude %>
+      <%= form.text_field :latitude, class: 'form-control' %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :longitude %>
+      <%= form.text_field :longitude, class: 'form-control' %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :sent_at %>
+      <div class="col-md-12 px-0"><%= form.datetime_select :sent_at %></div>
+      <!--<%= form.text_field :sent_at, class: 'form-control' , type: 'datetime-local', value: 'sent_at' %>-->
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :vehicle_id %>
+      <!--<%= form.number_field :vehicle_id %>-->
+      <%= collection_select(:waypoint, :vehicle_id, @vehicles, :id, :vehicle_name, {:prompt => false}, class: 'form-control')  %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :sent_at %>
-    <%= form.datetime_select :sent_at %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vehicle_id %>
-    <!--<%= form.number_field :vehicle_id %>-->
-    <%= collection_select(:waypoint, :vehicle_id, @vehicles, :id, :vehicle_name, {:prompt => false}) %>
-  </div>
-
+  
+  <br>
+  
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-dark float-right', style: 'color:white'%>
   </div>
+
+</div>
 <% end %>
