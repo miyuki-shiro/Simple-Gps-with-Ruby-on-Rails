@@ -14,13 +14,6 @@ class WaypointsController < ApplicationController
   def show
   end
 
-  def search_vehicle
-    #@waypoint = Waypoint.all
-    #@waypoints = Waypoint.where("vehicle_id = ?", params[:vehicle_id])
-    @waypoints = Waypoint.find(params[:vehicle_id])
-    @vehicles = Vehicle.all
-  end
-
   # GET /waypoints/new
   def new
     @waypoint = Waypoint.new

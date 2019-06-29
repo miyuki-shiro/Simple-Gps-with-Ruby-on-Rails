@@ -27,10 +27,6 @@
           <td class="align-middle"><%= waypoint.latitude %></td>
           <td class="align-middle"><%= waypoint.longitude %></td>
           <td class="align-middle"><%= waypoint.sent_at %></td>
-          <!--<td><%= waypoint.vehicle_id %></td>
-          <td><%= link_to 'Show', waypoint %></td>
-          <td><%= link_to 'Edit', edit_waypoint_path(waypoint) %></td>
-          <td><%= link_to 'Destroy', waypoint, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
           <td class="align-middle"><%= waypoint.vehicle.vehicle_name %></td>
           <td class="align-middle"><%= link_to waypoint, class: 'btn btn-light btn-sm rounded-circle' do %> 
             <i class="material-icons">remove_red_eye</i> <% end %></td>

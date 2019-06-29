@@ -19,34 +19,16 @@
         <strong>Sent at:</strong>
         <%= @waypoint.sent_at %>
       </div>
+      <!--<div class="col-sm">
+        <strong>Vehicle:</strong>
+        <%= @waypoint.vehicle.vehicle_name %>
+      </div>-->
     </div>
-</div>
-
-  <!--<p>
-    <strong>Latitude:</strong>
-    <%= @waypoint.latitude %>
-  </p>
-
-  <p>
-    <strong>Longitude:</strong>
-    <%= @waypoint.longitude %>
-  </p>
-
-  <p>
-    <strong>Sent at:</strong>
-    <%= @waypoint.sent_at %>
-  </p>
-
-  <p>
-    <strong>Vehicle:</strong>-->
-    <!--<%= @waypoint.vehicle_id %>-->
-    <!--<%= @waypoint.vehicle.vehicle_name %>
-  </p>-->
-
+  </div>
+  
   <br>
 
   <p id="map" style="height: 450px;"></p>
-
 
   <!--<%= link_to 'Edit', edit_waypoint_path(@waypoint) %> |
   <%= link_to 'Back', waypoints_path %>-->
@@ -82,12 +64,6 @@
   });
   //Styling marker
   var icon = new ol.style.Icon({
-      /*src: 'http://download.seaicons.com/icons/icons-land/vista-map-markers/256/Map-Marker-Push-Pin-1-Pink-icon.png',
-      src: 'https://images.vexels.com/media/users/3/135138/isolated/preview/37bb16a497b84daee1b6dbfc87c9e2ed-signo-de-localizaci--n-azul-by-vexels.png',
-      src: 'https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png',
-      src: 'https://www.mfyou.in/web_assets/images/currnet_location.png',
-      src: 'https://practicaltherapysolutions.ie/wp-content/uploads/2015/04/location.png',
-      src: 'https://www.seekpng.com/png/full/347-3471181_lugar-de-juego-ubicacion-png.png',*/
       src: 'https://png.pngtree.com/svg/20170217/9300c0869c.svg',
       anchor: [0.5, 0.5],
       scale: 0.10,
